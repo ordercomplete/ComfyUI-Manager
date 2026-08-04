@@ -809,7 +809,9 @@ const isOutputNode = (node) => {
 }
 
 function restartOrStop() {
-	if(restart_stop_button.innerText == 'Restart'){
+	// Support both English and Ukrainian button labels (translated by comfyui-manager-locale)
+	const btnText = restart_stop_button.innerText.trim();
+	if(btnText == 'Restart' || btnText == 'Перезапустити'){
 		rebootAPI();
 	}
 	else {
